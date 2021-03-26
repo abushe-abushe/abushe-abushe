@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="userjson" format="json">
+      <types:shape format="weave" example="examples/user-3.txt"><![CDATA[%dw 2.0
+
+type userjson = Array<Number {"typeId": "int"}> {"example": "[1,2,3,4,5]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#023367e4-0632-4e97-9d8e-1ffe229a9647">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="userjson"/>
+          <types:attributes type="userjson"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
